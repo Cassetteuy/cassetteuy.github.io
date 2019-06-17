@@ -3,6 +3,11 @@
 	--color-bg: #000;
 }
 
+@keyframes giro1080 {
+	from { transform: rotate(0); }
+	to   { transform: rotate(1080deg); }
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -18,10 +23,10 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	
-	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-family: "Helvetica Neue", "Helvetica", Verdana, Geneva, Arial, sans-serif;
 	
-	color: var(--color-fg);
-	background: var(--color-bg);
+	color: #fff; /* var(--color-fg);*/
+	background: #000; /* var(--color-bg);*/
 }
 
 /* Navegación */
@@ -37,21 +42,12 @@ nav {
 	background: #000a;
 }
 
-/** Orden del menú: Programas | Podcast | Home | Extras | Vivo **/
-nav a[href="#home"] { order: 1; }
-nav a[href="#extras"] { order: 2; }
-nav a[href="#vivo"] {
-	order: 3;
-	padding: .6em;
-	background: red;
-	border-radius: .4em;
-}
-
-nav a:not(.titulo) {
+nav a {
 	display: block;
 	position: relative;
 	
 	margin: .2em 2vw;
+	padding: 3px;
 	
 	color: inherit;
 	text-decoration: none;
@@ -61,11 +57,30 @@ nav a:not(.titulo) {
 	
 	bottom: 0;
 	right: 0;
-	text-shadow: 0 0 0 #fffa;
-	transition: * .6s;
+	text-shadow: 0 0 0 #ffff, 0 0 0 #ffff;
+	box-shadow: 0 0 0 #f00f, 0 0 0 #f00f;
+	transition-property: bottom, right, text-shadow, box-shadow;
+	transition-duration: .2s;
+	transition-timing-function: ease-out;
 }
 
-nav h1 {
+nav a { order: 1; }
+nav a.titulo { order: 2; }
+nav a.post-titulo { order: 3; }
+
+nav a.titulo {
+	margin: .2em 0;
+}
+
+nav a.vivo {
+	padding: .6em;
+	border-radius: .4em;
+	
+	color: #fff;
+	background: red;
+}
+
+nav a h1 {
 	display: block;
 	overflow: hidden;
 	
@@ -75,25 +90,24 @@ nav h1 {
 	padding-left: 70px;
 	
 	background: transparent url(../img/logo.svg) 0 0/70px 70px no-repeat;
-	
-	transform: rotate(0);
-	transition: transform 1.2s ease-in-out;
 }
 
-nav a:not(.titulo):hover {
-	bottom: 3px;
-	right: 3px;
+nav a:hover {
+	bottom: 6px;
+	right: 6px;
 	
-	text-shadow: 3px 3px 0 #fff8;
+	text-shadow: 3px 3px 0 #fffa, 6px 6px 0 #fff5;
 }
 
-nav a[href="#vivo"]:hover {
+nav a.vivo:hover {
 	text-shadow: unset;
-	box-shadow: 3px 3px 0 #f00a;
+	box-shadow: 3px 3px 0 #f00a, 6px 6px 0 #f005;
 }
 
-nav a:hover h1 {
-	transform: rotate(1080deg);
+nav a.titulo:hover {
+	bottom: 0;
+	right: 0;
+	animation: giro1080 1.2s ease-in-out;
 }
 
 /* Secciones */
