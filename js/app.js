@@ -19,7 +19,7 @@ class DB
 	static set checkOverride (val /* Bool */)
 	{
 		DB.___checkOverride___ = val;
-		return DB.checkOverride;
+		return val;
 	}
 
 	static get db () { return DB.___db___ }
@@ -70,16 +70,11 @@ class Entity
 
 		// Crear un trace coloreado para esta entidad
 		let style = Config.log.styles[classname] || Config.log.styles.DEFAULT;
-		this.trace = (...args) => console.log(`%c${this.___classname___}#${this.___id___} >`, style, ...args);
+		this.trace = (...args) => console.log(`%c ${this.___classname___}#${this.___id___} >`, style, ...args);
 
 		// Agregar entidad a la lista de entidades
 		if (typeof Entity.entities === 'undefined') Entity.___entities___ = {};
 		Entity.entities[id] = this;
-	}
-
-	destroy ()
-	{
-		Entity.destroy(this.id);
 	}
 }
 
