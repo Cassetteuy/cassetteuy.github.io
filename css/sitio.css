@@ -24,11 +24,6 @@ body {
 	background: var(--color-bg);
 }
 
-@keyframes logogiro {
-	from { transform: rotate(0); }
-	to   { transform: rotate(1080deg); }
-}
-
 /* Navegación */
 nav {
 	display: flex;
@@ -44,8 +39,13 @@ nav {
 
 /** Orden del menú: Programas | Podcast | Home | Extras | Vivo **/
 nav a[href="#home"] { order: 1; }
-nav a[href="#extras"],
-nav a[href="#vivo"] { order: 2; }
+nav a[href="#extras"] { order: 2; }
+nav a[href="#vivo"] {
+	order: 3;
+	padding: .6em;
+	background: red;
+	border-radius: .4em;
+}
 
 nav a:not(.titulo) {
 	display: block;
@@ -57,10 +57,12 @@ nav a:not(.titulo) {
 	text-decoration: none;
 	font-size: 14px;
 	font-weight: 900;
-}
-
-nav a.titulo {
-	margin: .2em 0;
+	white-space: nowrap;
+	
+	bottom: 0;
+	right: 0;
+	text-shadow: 0 0 0 #fffa;
+	transition: * .6s;
 }
 
 nav h1 {
@@ -72,20 +74,26 @@ nav h1 {
 	margin: 0;
 	padding-left: 70px;
 	
-	background: transparent url(../img/logo.svg) 0 0/70px 70px;
+	background: transparent url(../img/logo.svg) 0 0/70px 70px no-repeat;
+	
+	transform: rotate(0);
+	transition: transform 1.2s ease-in-out;
 }
 
-nav a:hover {
-	/*
-	bottom: 5px;
-	right: 5px;
+nav a:not(.titulo):hover {
+	bottom: 3px;
+	right: 3px;
 	
-	text-shadow: 5px 5px 0 #fff;
-	*/
+	text-shadow: 3px 3px 0 #fff8;
+}
+
+nav a[href="#vivo"]:hover {
+	text-shadow: unset;
+	box-shadow: 3px 3px 0 #f00a;
 }
 
 nav a:hover h1 {
-	animation: 1.2s logogiro ease-in-out; 
+	transform: rotate(1080deg);
 }
 
 /* Secciones */
