@@ -8,6 +8,11 @@
 	to   { transform: rotate(1080deg); }
 }
 
+@keyframes pulsarvivo {
+	from { background: #700; }
+	to   { background: #f00; }
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -26,7 +31,7 @@ body {
 	font-family: "Helvetica Neue", "Helvetica", Verdana, Geneva, Arial, sans-serif;
 	
 	color: #fff; /* var(--color-fg);*/
-	background: #000; /* var(--color-bg);*/
+	background: #000; /* url(../img/logo_txt.svg) center no-repeat; var(--color-bg);*/
 }
 
 /* Navegación */
@@ -57,14 +62,13 @@ nav a {
 	
 	bottom: 0;
 	right: 0;
-	text-shadow: 0 0 0 #ffff, 0 0 0 #ffff;
-	box-shadow: 0 0 0 #f00f, 0 0 0 #f00f;
-	transition-property: bottom, right, text-shadow, box-shadow;
+	text-shadow: 0 0 0 #fff0, 0 0 0 #fff0;
+	transition-property: bottom, right, text-shadow;
 	transition-duration: .2s;
 	transition-timing-function: ease-out;
 }
 
-nav a { order: 1; }
+nav > a { order: 1; }
 nav a.titulo { order: 2; }
 nav a.post-titulo { order: 3; }
 
@@ -73,11 +77,26 @@ nav a.titulo {
 }
 
 nav a.vivo {
-	padding: .6em;
-	border-radius: .4em;
-	
-	color: #fff;
-	background: red;
+	opacity: .5;
+	text-transform: uppercase;
+}
+
+nav a.vivo::before {
+	content: "";
+	display: inline-block;
+	background: #700;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	margin-right: .2em;
+}
+
+nav a.vivo:not([disabled]) {
+	opacity: 1;
+}
+
+nav a.vivo:not([disabled])::before {
+	animation: pulsarvivo 1s infinite alternate;
 }
 
 nav a h1 {
@@ -92,22 +111,45 @@ nav a h1 {
 	background: transparent url(../img/logo.svg) 0 0/70px 70px no-repeat;
 }
 
-nav a:hover {
+nav a:hover,
+h2 {
 	bottom: 6px;
 	right: 6px;
 	
-	text-shadow: 3px 3px 0 #fffa, 6px 6px 0 #fff5;
-}
-
-nav a.vivo:hover {
-	text-shadow: unset;
-	box-shadow: 3px 3px 0 #f00a, 6px 6px 0 #f005;
+	text-shadow: 3px 3px 0 #fff7, 6px 6px 0 #fff4;
 }
 
 nav a.titulo:hover {
 	bottom: 0;
 	right: 0;
 	animation: giro1080 1.2s ease-in-out;
+}
+
+nav .sociales {
+	display: flex;
+	justify-content: space-between;
+	
+	width: 10vw;
+	max-width: 200px;
+	
+	position: absolute;
+	left: 1vw;
+}
+
+nav .sociales a {
+	display: block;
+	margin: 0;
+	width: 2em;
+	height: 2em;
+	padding-left: .5em;
+	overflow: hidden;
+	border: 1px solid;
+	border-radius: 50%;
+}
+
+nav .sociales a::first-letter {
+	letter-spacing: 2em;
+	font-size: 1.5em;
 }
 
 /* Secciones */
@@ -131,4 +173,10 @@ main section:target {
 footer {
 	width: 100%;
 	text-align: center;
+	font-size: 12px;
+}
+
+footer b {
+	font-size: 1.5em;
+	margin: 0 .3em;
 }
