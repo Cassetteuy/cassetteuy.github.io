@@ -132,7 +132,7 @@ nav .sociales {
 	display: flex;
 	justify-content: space-between;
 	
-	width: 10vw;
+	width: 20vw;
 	max-width: 200px;
 	
 	position: absolute;
@@ -142,17 +142,25 @@ nav .sociales {
 nav .sociales a {
 	display: block;
 	margin: 0;
-	width: 2em;
-	height: 2em;
+	width: 34px;
+	height: 34px;
 	padding-left: .5em;
 	overflow: hidden;
 	border: 1px solid;
 	border-radius: 50%;
+	
+	flex-basis: initial;
 }
 
 nav .sociales a::first-letter {
 	letter-spacing: 2em;
 	font-size: 1.5em;
+}
+
+@media (max-width: 690px) {
+	nav .sociales {
+		display: none;
+	}
 }
 
 /* Secciones */
@@ -188,4 +196,5 @@ footer {
 footer b {
 	font-size: 1.5em;
 	margin: 0 .3em;
+	color: #f06;
 }
