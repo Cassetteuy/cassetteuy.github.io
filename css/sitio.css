@@ -1,3 +1,9 @@
+@font-face {
+	font-family: "KC icons";
+	src: url("../font/kc-icons.woff2") format("woff2"),
+		url("../font/kc-icons.woff") format("woof");
+}
+
 :root {
 	--color-fg: #fff;
 	--color-bg: #000;
@@ -34,6 +40,52 @@ body {
 	color: #fff; /* var(--color-fg);*/
 	background: #000; /* url(../img/logo_txt.svg) center no-repeat; var(--color-bg);*/
 }
+
+/* Íconos */
+.icon::before {
+	font-family: "KC icons";
+	font-weight: normal;
+	font-style: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin: 0 .2em;
+	text-align: center;
+
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+}
+
+.icon.effect-3d {
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+
+.i-cancel::before 	{ content: '\e800'; }
+.i-plus::before 	{ content: '\e801'; }
+.i-quote::before 	{ content: '\e802'; }
+.i-mail::before 	{ content: '\e803'; }
+.i-play::before 	{ content: '\e804'; }
+.i-stop::before 	{ content: '\e805'; }
+.i-pause::before 	{ content: '\e806'; }
+.i-fast-fw::before 	{ content: '\e807'; }
+.i-rewind::before 	{ content: '\e808'; }
+.i-shuffle::before 	{ content: '\e809'; }
+.i-menu::before 	{ content: '\f008'; }
+.i-twitter::before 	{ content: '\f099'; }
+.i-facebook::before { content: '\f09a'; }
+.i-help::before 	{ content: '\f128'; }
+.i-youtube::before 	{ content: '\f167'; }
+.i-instagram::before{ content: '\f16d'; }
+.i-share::before 	{ content: '\f1e0'; }
+.i-twitch::before 	{ content: '\f1e8'; }
+.i-whatsapp::before { content: '\f232'; }
+.i-mixcloud::before { content: '\f289'; }
 
 /* Navegación */
 nav {
@@ -143,6 +195,33 @@ nav .sociales {
 nav .sociales a {
 	display: block;
 	margin: 0;
+	
+	font-size: 1.2em;
+}
+
+nav .sociales a i {
+	color: #fff;
+	transition: color .6s;
+	transition-delay: .6s;
+}
+
+nav .sociales a:hover i[class*=youtube] { color: red; }
+nav .sociales a:hover i[class*=twitter] { color: #1da1f2; }
+nav .sociales a:hover i[class*=instagram] { color: #c32aa3; }
+nav .sociales a:hover i[class*=facebook] { color: #1877f2; }
+nav .sociales a:hover i[class*=mixcloud] { color: #273a4b; }
+nav .sociales a:hover i[class*=twitch] { color: #6441a4; }
+
+@media (max-width: 690px) {
+	nav .sociales {
+		display: none;
+	}
+}
+
+/*
+nav .sociales a {
+	display: block;
+	margin: 0;
 	width: 34px;
 	height: 34px;
 	padding-left: .5em;
@@ -163,6 +242,7 @@ nav .sociales a::first-letter {
 		display: none;
 	}
 }
+*/
 
 /* Secciones */
 main {

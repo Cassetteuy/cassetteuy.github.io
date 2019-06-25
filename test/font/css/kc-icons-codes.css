@@ -1,0 +1,20 @@
+
+.icon-cancel:before { content: '\e800'; } /* '' */
+.icon-plus:before { content: '\e801'; } /* '' */
+.icon-quote:before { content: '\e802'; } /* '' */
+.icon-mail:before { content: '\e803'; } /* '' */
+.icon-play:before { content: '\e804'; } /* '' */
+.icon-stop:before { content: '\e805'; } /* '' */
+.icon-pause:before { content: '\e806'; } /* '' */
+.icon-fast-fw:before { content: '\e807'; } /* '' */
+.icon-rewind:before { content: '\e808'; } /* '' */
+.icon-shuffle:before { content: '\e809'; } /* '' */
+.icon-menu:before { content: '\f008'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-help:before { content: '\f128'; } /* '' */
+.icon-youtube:before { content: '\f167'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-share:before { content: '\f1e0'; } /* '' */
+.icon-twitch:before { content: '\f1e8'; } /* '' */
+.icon-whatsapp:before { content: '\f232'; } /* '' */
