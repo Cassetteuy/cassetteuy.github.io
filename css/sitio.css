@@ -196,7 +196,7 @@ nav .sociales a {
 	display: block;
 	margin: 0;
 	
-	font-size: 1.2em;
+	font-size: 1.4rem;
 }
 
 nav .sociales a i {
@@ -212,7 +212,7 @@ nav .sociales a:hover i[class*=facebook] { color: #1877f2; }
 nav .sociales a:hover i[class*=mixcloud] { color: #273a4b; }
 nav .sociales a:hover i[class*=twitch] { color: #6441a4; }
 
-@media (max-width: 690px) {
+@media (max-width: 729px) {
 	nav .sociales {
 		display: none;
 	}
@@ -294,6 +294,9 @@ footer {
 	width: 100%;
 	text-align: center;
 	font-size: .8rem;
+	padding: .3rem 0 0 0;
+	
+	background: #000a;
 }
 
 footer b {
@@ -306,10 +309,15 @@ footer .sociales {
 	display: none;
 }
 
-@media (max-width: 689px) {
+@media (max-width: 729px) {
+	footer {
+		position: sticky;
+		bottom: -2.2rem;
+	}
+	
 	footer .sociales {
 		display: flex;
-		justify-content: space-around
+		justify-content: space-around;
 	}
 	
 	footer .sociales a {
