@@ -1,7 +1,13 @@
+/*** Reset ***/
 html, body, div, section {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/*** Variables ***/
+:root {
+    --top-margin: 60px;
 }
 
 /*** Router ***/
@@ -10,15 +16,38 @@ section {
 }
 
 section:target,
-section#inicio {
+section.main {
     display: block;
+}
+
+@keyframes section-appear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+section:target {
+    animation: section-appear .5s linear;
+}
+
+section.main {
+    animation: none;
 }
 
 /*** Fuentes ***/
 body {
     font-family: Arial, Helvetica, sans-serif;
+    
     background: #222 url(../img/fondo_1600_web.jpg) no-repeat center center fixed;
     background-size: cover;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
 }
 
 /*** Título principal y logo ***/
@@ -39,6 +68,7 @@ h1 {
     
     color: transparent;
     background: transparent url(../img/logo_carnival_web.png) no-repeat center;
+    text-shadow: none;
     
     left: 0%;
     transform: scale(.5) rotate(-10deg) translate(-40%,-80%);
@@ -46,33 +76,23 @@ h1 {
     transition: left 1s ease-in-out, transform 1s ease-in-out;
 }
 
-@keyframes totopnav {
+@keyframes nav-totop {
     0% {
-        top: 100%;
-        right: 50%;
-        transform: translate(50%,-100%);
-        opacity: 1;
-    }
-    
-    50% {
-        top: 100%;
-        right: 50%;
-        transform: translate(50%,0);
-        opacity: .2;
-    }
-    
-    51% {
-        right: 0;
-        top: 0;
-        transform: translate(100%,0);
-        opacity: .2;
+        transform: translate(0,-100%);
     }
     
     100% {
-        right: 0;
-        top: 0;
         transform: translate(0,0);
-        opacity: 1;
+    }
+}
+
+@keyframes nav-tobottom {
+    0% {
+        transform: translate(50%,0);
+    }
+    
+    100% {
+        transform: translate(50%, -100%);
     }
 }
 
@@ -80,16 +100,16 @@ h1 {
     top: 100%;
     right: 50%;
     transform: translate(50%,-100%);
+    
+    animation: nav-tobottom .6s ease-out;
 }
 
 nav {
     right: 0;
     top: 0;
     transform: translate(0,0);
-    /*
-    animation-name: totopnav;
-    animation-duration: 1s;
-    */
+    
+    animation: nav-totop .6s ease-out;
 }
 
 /** Menú **/
@@ -98,7 +118,64 @@ nav a {
     margin: .4em .2em;
 }
 
+section[id=lugar] h2,
 nav a[href*=lugar]      { content: url("../img/button_mapas.png"); }
+section[id=programa] h2,
 nav a[href*=programa]   { content: url("../img/button_actividades.png"); }
+section[id=bandas] h2,
 nav a[href*=bandas]     { content: url("../img/button_bandas.png"); }
+section[id=contacto] h2,
 nav a[href*=contacto]   { content: url("../img/button_contacto.png"); }
+
+:target .social {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    
+    animation: nav-totop .6s;
+}
+
+.social {
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+}
+
+/** Secciones **/
+section {
+    position: absolute;
+    padding: 1.5em;
+    
+    top: var(--top-margin);
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    width: 100%;
+    max-width: 800px;
+    min-height: 60vh;
+    
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    
+    overflow-y: auto;
+    
+    background: rgba(0,0,0,.4);
+    background: transparent linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));
+}
+
+section.main {
+    position: fixed;
+    margin: 0;
+    background: transparent linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));
+    max-width: none;
+    
+    top: 0;
+    left: unset;
+    transform: unset;
+    z-index: 100;
+}
+
+h2 {
+    margin: 0 auto 1em;
+}
