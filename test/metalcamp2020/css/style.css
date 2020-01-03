@@ -41,6 +41,11 @@ section.main {
 }
 
 /*** Fuentes ***/
+@font-face {
+    font-family: "CarnivalFest";
+    src: url("../fonts/carnival_font.ttf");
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     
@@ -116,16 +121,12 @@ nav {
 nav a {
     /*color: transparent;*/
     margin: .4em .2em;
+    font-family: CarnivalFest;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0 0 2px #fff;
+    font-size: 2.4em;
 }
-
-section[id=lugar] h2,
-nav a[href*=lugar]      { content: url("../img/button_mapas.png"); }
-section[id=programa] h2,
-nav a[href*=programa]   { content: url("../img/button_actividades.png"); }
-section[id=bandas] h2,
-nav a[href*=bandas]     { content: url("../img/button_bandas.png"); }
-section[id=contacto] h2,
-nav a[href*=contacto]   { content: url("../img/button_contacto.png"); }
 
 :target .social {
     top: 0;
@@ -173,9 +174,87 @@ section.main {
     top: 0;
     left: unset;
     transform: unset;
+}
+
+.main h1,
+.main nav {
     z-index: 100;
 }
 
 h2 {
-    margin: 0 auto 1em;
+    margin: 0 0 1rem;
+    text-align: center;
+    font-family: CarnivalFest;
+    font-weight: normal;
+    font-size: 3em;
+    color: #000;
+    text-shadow: 0 0 2px #fff;
+}
+
+#lugar {
+    text-align: center;
+}
+
+section p {
+    width: 80%;
+    margin: .4em auto;
+    text-align: left;
+}
+
+/*** Programa ***/
+table {
+    width: 100%;
+    font-family: CarnivalFest;
+    font-size: 20px;
+    text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+td {
+    text-align: center;
+    color: #8d9c7b;
+}
+
+th {
+    font-weight: normal;
+}
+
+thead th {
+    font-size: 30px;
+    color: #fff;
+}
+
+tbody th {
+    color: #c65c28;
+    font-size: 18px;
+}
+
+tbody a {
+    text-decoration: none;
+    color: inherit;
+}
+
+tbody a:hover {
+    color: #fff;
+    transform: scale(1.4);
+}
+
+tbody tr {
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+tbody tr:nth-of-type(2n + 1) {
+    background: rgba(0,0,0,.6);
+}
+
+.contenedor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+    z-index: 10;
+    
+    overflow-y: auto;
 }
