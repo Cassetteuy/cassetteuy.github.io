@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Prueba",
+		"file":	"prueba.json"
+	},
+	{
+		"name": "Presentación",
+		"file":	"presentacion.json"
+	},
+	{
+		"name": "Intro con video",
+		"file":	"con_video.json"
+	}
+]
