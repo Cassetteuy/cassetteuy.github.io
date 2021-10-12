@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../img/back_landing03.jpg) top center / cover no-repeat fixed;
+    min-height: 100vh;
+    padding-bottom: 3em;
+    
+    color: #fff;
+    font-size: 11pt;
+    font-family: sans-serif;
+    text-shadow: 2px 0 0 #000,
+        0 2px 0 #000,
+        0 -2px 0 #000,
+        2px 0 0 #000;
+}
+
+body.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: block;
+    
+    width: 70vw;
+    min-width: 200px;
+    max-width: 700px;
+    
+    margin: 0 auto;
+}
+
+.acceso {
+    position: fixed;
+    bottom: -30px;
+    right: -15px;
+    
+    perspective: 300px;
+}
+
+.acceso img {
+    width: 25vw;
+    min-width: 200px;
+    max-width: 450px;
+    
+    transform: rotateY(25deg);
+    filter: drop-shadow(0 0 5px #d99552);
+}
+
+h1, h2 {
+    font-family: serif;
+}
+
+h1 {
+    font-size: 20pt;
+    text-align: center;
+    margin: 1.4em 0 2.4em;
+}
+
+h2, p, table {
+    width: 100%;
+    max-width: 750px;
+    margin: 1em auto 0;
+    padding: 0 1em;
+}
+
+h2 {
+    font-size: 16pt;
+    text-decoration: underline;
+    margin-top: 2.4em;
+}
+
+table, td, th {
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+thead, tbody tr:nth-child(even) {
+    background: #000c;
+}
+
+td, th {
+    padding: .4em .2em
+}
+
+a.boton {
+    display: block;
+    width: max-content;
+    padding: 1.2em 2em;
+    margin: 1.8em auto .3em;
+    
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: none;
+    
+    color: inherit;
+    background: #000;
+    border-radius: 6px;
+    box-shadow: 0 0 4px;
+}
+
+a.cta {
+    background: #d99552;
+    color: #000;
+}
